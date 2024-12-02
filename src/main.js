@@ -21,7 +21,6 @@ function handleSub(event) {
     list.innerHTML = "";
     loader.style.visibility = '';
     const inputValue = event.target.elements.input.value.trim();
-    setTimeout(() => {
         if (inputValue.length < 1) {
         loader.style.visibility = 'hidden';
         return iziToast.show({
@@ -67,7 +66,7 @@ function handleSub(event) {
             loader.style.visibility = 'hidden';
             event.target.reset();
        })
-}, 1000)
+
 };
 
 
