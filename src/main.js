@@ -12,20 +12,26 @@ const lightBox = new SimpleLightbox(".gallery-item a", {
 const form = document.querySelector(".form");
 const list = document.querySelector(".list");
 const loader = document.querySelector(".loader");
+loader.style.visibility = 'hidden';
 const API_KEY = "47389076-066c089ec4ce8fe31e83dc6f8";
 form.addEventListener("submit", handleSub);
 function handleSub(event) {
     event.preventDefault();
-    loader.style.visibility = 'visible';
+    loader.style.visibility = '';
     const inputValue = event.target.elements.input.value.trim();
-    if (inputValue.length < 1) {
-       return iziToast.show({
+    setTimeout(() => {
+        if (inputValue.length < 1) {
+        list.innerHTML = "";
+        loader.style.visibility = 'hidden';
+        return iziToast.show({
             title: '',
             message: "Please enter the searh",
             backgroundColor: `red`,
             messageColor: `#fff`,
             position: "topRight"
-       })  
+        });
+        
+        
     };
     const params = new URLSearchParams({
         key: API_KEY,
@@ -35,6 +41,8 @@ function handleSub(event) {
         safesearch: "true"
     }); 
     const urlPixeBay = `https://pixabay.com/api/?${params}`;
+    
+ 
     fetchPixabay (urlPixeBay)
         .then((data) => {
             if (data.total === 0) {
@@ -58,7 +66,7 @@ function handleSub(event) {
             loader.style.visibility = 'hidden';
             event.target.reset();
        })
- 
+}, 1000)
 };
 
 

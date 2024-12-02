@@ -1,5 +1,8 @@
 .container {
-    width: 1440px;   
+    width: 1440px;
+    display: flex;   
+    justify-content: center;
+    align-items: center;
 }
 .label {
     display: flex;
@@ -42,7 +45,7 @@
         gap: 24px;
         justify-content: center;
         width: 1240px;
-        padding: 24px 156px;
+        padding: 24px 100px;
         margin: auto;
 }
 
@@ -97,7 +100,7 @@ span {
     display: block;
     position: absolute;
     top: 100px;
-    left: 720px;
+    left: calc(100%/2);
     width: inherit;
     height: inherit;
     border-radius: 50%;
