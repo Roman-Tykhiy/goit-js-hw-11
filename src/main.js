@@ -59,7 +59,13 @@ function handleSub(event) {
             lightBox.refresh();
     })
         .catch((error)=> {
-        console.log(error);
+        iziToast.show({
+            title: '',
+            message: `${error}`,
+            backgroundColor: `red`,
+            messageColor: `#fff`,
+            position: "topRight"
+        });
         
         })
         .finally(() => {
